@@ -21,17 +21,17 @@
 
 int main(int argc, string argv[])
 {
-    // TODO: comment me
+    // Verify that the user entered at least 1 argument, but no more than 2, else state usage.
     if (argc != 2 && argc != 3)
     {
         printf("Usage: ./generate n [s]\n");
         return 1;
     }
 
-    // TODO: comment me
+    // Convert first argument to an integer.
     int n = atoi(argv[1]);
 
-    // TODO: comment me
+    // Seed rand() with either the users seed, or use the time seed function.
     if (argc == 3)
     {
         srand((unsigned int) atoi(argv[2]));
@@ -41,7 +41,7 @@ int main(int argc, string argv[])
         srand((unsigned int) time(NULL));
     }
 
-    // TODO: comment me
+    // Run the rand() fuction and print the output repeatedly until the number of cycles == the requested number of randoms.
     for (int i = 0; i < n; i++)
     {
         printf("%i\n", rand() % LIMIT);

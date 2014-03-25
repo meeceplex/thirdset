@@ -38,6 +38,7 @@ int d;
 void clear(void);
 void greet(void);
 void init(void);
+void swap(int *a, int *b)
 void draw(void);
 bool move(int tile);
 bool won(void);
@@ -131,8 +132,27 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+    // Get board dimensions and populate grid with correct number of tiles plus 1 blank, swap '1' and '2' if tile count is odd.
+    for (int i = 0; i <= d; i++)
+    {
+        for (int j = 0; j <= d; j++)
+        {
+            board[i][j] = (d * d) - j;
+            printf("board %i x %i = %i\n", i, j, d-j);
+        }
+    }
 }
+
+/**
+ * Swap function
+ */
+void swap(int* a, int* b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;    
+} 
+
 
 /**
  * Prints the board in its current state.
