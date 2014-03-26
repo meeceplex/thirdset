@@ -17,6 +17,10 @@
  */
 bool search(int value, int values[], int n)
 {
+/**
+ *
+ * Linear search, commented out to retain code.
+
     if (n <= 0)
     {
         return false;
@@ -31,7 +35,11 @@ bool search(int value, int values[], int n)
     }
     
     return false;
-/*
+    
+ *
+ * End of commented out linear search code
+ */
+ 
 	int beginning = 0;
 	int ending = n - 1;
 
@@ -61,7 +69,6 @@ bool search(int value, int values[], int n)
 	}
 	//return false
 	return false;
-*/
 }
 
 /**
