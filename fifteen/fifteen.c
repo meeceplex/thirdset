@@ -201,8 +201,51 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
-    return false;
+    // Verify tile location as adjacent to blank tile, then swap tiles, else return false.
+    int br = d; // Blank tile row coordinate
+    int bc = d; // Blank tile column coordinate
+    int tr = 0; // Move tile row coordinate
+    int tc = 0; // Move tile column coordinate
+    
+    // Find coordinates of blank tile
+    for(int i = 0; i < d; i++)
+    {
+        for(int j = 0; j < d; j++)
+        {
+            if(board[i][j] == 95)
+            {
+                br = i;
+                bc = j;
+            }
+        }
+    }
+    
+    // Find coordinates of move tile
+    for(int i = 0; i < d; i++)
+    {
+        for(int j = 0; j < d; j++)
+        {
+            if(board[i][j] == tile)
+            {
+                tr = i;
+                tc = j;
+            }
+        }
+    }
+    
+    // Calculate difference from sum of coordinates, check if greater than 1 or -1
+    int blanksum = (br + bc);
+    int tilesum = (tr + tc);
+    
+    if(((blanksum - tilesum) == 1) || (blanksum - tilesum) == -1)
+    {
+        swap(&board[br][bc], &board[tr][tc]);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 /**
