@@ -254,7 +254,22 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
+    // Check array for win configuration and return true, else return false
+    
+    int won = 0; // counter
+    
+    for(int i = 0; i < d; i++) // iterate through rows
+    {
+        for(int j = 0; j < d; j++) //iterate through columns
+        {
+            if(board[i][j] == (won + 1)) //check if current position is 1 greater than previous, and proceed
+            {
+                won++;
+                if(won == ((d * d) - 1) && (board[d - 1][d - 1] == 95))
+                return true;
+            }
+        }
+    }
     return false;
 }
 
